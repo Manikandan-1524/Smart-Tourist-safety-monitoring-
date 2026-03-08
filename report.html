@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Incident – TourSafe</title>
+    <meta name="description" content="Report a safety incident with your GPS location." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="dash-body">
+
+    <!-- Top Nav -->
+    <nav class="dash-nav">
+        <div class="nav-brand">
+            <span class="shield-icon">🛡️</span>
+            <span class="brand-text">TourSafe</span>
+        </div>
+        <div class="nav-user">
+            <a href="dashboard.html" class="btn btn-outline btn-sm" id="back-dashboard-btn">← Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="form-main">
+        <div class="form-card">
+            <h2 class="form-card-title">📋 Report an Incident</h2>
+            <p class="form-card-subtitle">
+                Your GPS location is captured automatically. Fill in the details below.
+            </p>
+
+            <form id="reportForm" class="auth-form" novalidate>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="rep-name">Your Full Name</label>
+                    <input type="text" id="rep-name" class="form-input" placeholder="e.g. John Doe" required />
+                    <span class="field-error" id="err-rep-name"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="rep-phone">Phone Number</label>
+                    <input type="tel" id="rep-phone" class="form-input" placeholder="e.g. +91 9876543210" required />
+                    <span class="field-error" id="err-rep-phone"></span>
+                </div>
+
+                <!-- Incident Type -->
+                <div class="form-group">
+                    <label for="rep-type">Incident Type</label>
+                    <select id="rep-type" class="form-input form-select" required>
+                        <option value="">-- Select incident type --</option>
+                        <option value="Theft">Theft</option>
+                        <option value="Medical Emergency">Medical Emergency</option>
+                        <option value="Harassment">Harassment</option>
+                        <option value="Lost">Lost</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="field-error" id="err-rep-type"></span>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="rep-description">Description</label>
+                    <textarea id="rep-description" class="form-input form-textarea"
+                        placeholder="Briefly describe what happened..." rows="4" required></textarea>
+                    <span class="field-error" id="err-rep-desc"></span>
+                </div>
+
+                <!-- GPS Fields (auto-filled) -->
+                <div class="gps-row">
+                    <div class="form-group">
+                        <label for="rep-lat">Latitude</label>
+                        <input type="text" id="rep-lat" class="form-input" placeholder="Auto-detected..." readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="rep-lng">Longitude</label>
+                        <input type="text" id="rep-lng" class="form-input" placeholder="Auto-detected..." readonly />
+                    </div>
+                </div>
+
+                <!-- GPS status hint -->
+                <div id="gps-status" class="gps-status-msg">
+                    📍 Detecting your location...
+                </div>
+
+                <!-- Date & Time (auto-filled, read-only) -->
+                <div class="form-group">
+                    <label for="rep-datetime">Date &amp; Time</label>
+                    <input type="text" id="rep-datetime" class="form-input" readonly />
+                </div>
+
+                <!-- Message area -->
+                <div id="report-message" class="form-message"></div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-primary btn-block" id="report-submit-btn">
+                    Submit Report
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="js/report.js"></script>
+</body>
+
+</html>

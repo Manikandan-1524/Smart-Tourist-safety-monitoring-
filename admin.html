@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal – TourSafe</title>
+    <meta name="description" content="Admin dashboard to manage all incident reports." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="admin-body">
+
+    <!-- ── LOGIN SECTION (shown first) ─────────────────────────────────────── -->
+    <section id="admin-login-section" class="auth-body"
+        style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <a href="index.html" class="back-link" style="position:fixed; top:1.2rem; left:1.5rem;">← Home</a>
+
+        <div class="auth-container" style="width:100%">
+            <div class="auth-card">
+                <div class="auth-logo">
+                    <span class="shield-icon">🛡️</span>
+                    <h1 class="auth-brand">TourSafe Admin</h1>
+                </div>
+                <h2 class="auth-title">Admin Sign In</h2>
+                <p class="auth-subtitle">Restricted access – administrators only</p>
+
+                <form id="adminLoginForm" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label for="admin-email">Admin Email</label>
+                        <input type="email" id="admin-email" class="form-input" placeholder="admin@toursafe.com"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" class="form-input" placeholder="Admin password"
+                            required />
+                    </div>
+                    <div id="admin-login-msg" class="form-message"></div>
+                    <button type="submit" class="btn btn-primary btn-block" id="admin-login-btn">Sign In as
+                        Admin</button>
+                </form>
+                <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color: var(--text-muted);">
+                    Default credentials: <strong>admin@toursafe.com</strong> / <strong>admin123</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DASHBOARD SECTION (shown after login) ────────────────────────────── -->
+    <section id="admin-dashboard-section" style="display:none;">
+
+        <!-- Admin Top Nav -->
+        <nav class="dash-nav admin-nav">
+            <div class="nav-brand">
+                <span class="shield-icon">🛡️</span>
+                <span class="brand-text">TourSafe <span class="admin-badge">Admin</span></span>
+            </div>
+            <div class="nav-user">
+                <span id="admin-incident-count" class="incident-count-badge"></span>
+                <button class="btn btn-outline btn-sm" id="admin-logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <main class="admin-main">
+            <div class="admin-header">
+                <h2 class="section-heading">All Incident Reports</h2>
+                <div class="admin-filters">
+                    <!-- Filter by status -->
+                    <select id="filter-status" class="form-input form-select filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                    <!-- Refresh button -->
+                    <button class="btn btn-outline btn-sm" id="refresh-btn">🔄 Refresh</button>
+                </div>
+            </div>
+
+            <!-- Loading / Empty states -->
+            <div id="admin-loading" class="loading-msg">Loading incidents...</div>
+            <div id="admin-empty" class="empty-msg" style="display:none;">
+                No incidents found. System is clear! ✅
+            </div>
+
+            <!-- Incidents Table -->
+            <div class="table-wrapper" id="admin-table-wrapper" style="display:none;">
+                <table class="data-table" id="admin-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody">
+                        <!-- Rows injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </section>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

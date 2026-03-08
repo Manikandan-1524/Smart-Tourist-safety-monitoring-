@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login – TourSafe</title>
+    <meta name="description" content="Sign in to your TourSafe tourist account." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="auth-body">
+
+    <!-- Back to Home -->
+    <a href="index.html" class="back-link">← Back to Home</a>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="auth-logo">
+                <span class="shield-icon">🛡️</span>
+                <h1 class="auth-brand">TourSafe</h1>
+            </div>
+
+            <h2 class="auth-title">Welcome Back</h2>
+            <p class="auth-subtitle">Sign in to your tourist account</p>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form" novalidate>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" class="form-input" placeholder="e.g. john@email.com"
+                        required />
+                    <span class="field-error" id="err-login-email"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-input" placeholder="Your password"
+                        required />
+                    <span class="field-error" id="err-login-password"></span>
+                </div>
+
+                <!-- Global message area -->
+                <div id="login-message" class="form-message"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block" id="login-submit-btn">
+                    Sign In
+                </button>
+            </form>
+
+            <p class="auth-redirect">
+                Don't have an account? <a href="register.html">Register here</a>
+            </p>
+
+            <!-- Admin shortcut note -->
+            <div class="admin-note">
+                🔐 Admin? <a href="admin.html">Go to Admin Portal</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

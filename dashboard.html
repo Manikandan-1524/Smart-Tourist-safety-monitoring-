@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – TourSafe</title>
+    <meta name="description" content="Tourist dashboard to report incidents and trigger SOS." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="dash-body">
+
+    <!-- Top Navigation Bar -->
+    <nav class="dash-nav">
+        <div class="nav-brand">
+            <span class="shield-icon">🛡️</span>
+            <span class="brand-text">TourSafe</span>
+        </div>
+        <div class="nav-user">
+            <span id="dash-user-name">Welcome, Tourist</span>
+            <button class="btn btn-outline btn-sm" id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="dash-main">
+
+        <!-- Quick Action Buttons -->
+        <section class="action-section">
+            <h2 class="section-heading">What do you need?</h2>
+            <div class="action-grid">
+
+                <!-- Report Incident Card -->
+                <div class="action-card" id="go-to-report-card">
+                    <div class="action-icon">📋</div>
+                    <h3>Report Incident</h3>
+                    <p>Fill a detailed incident report with your GPS location.</p>
+                    <a href="report.html" class="btn btn-primary btn-block" id="go-to-report-btn">
+                        Report Now
+                    </a>
+                </div>
+
+                <!-- SOS Emergency Card -->
+                <div class="action-card sos-card">
+                    <div class="action-icon sos-icon">🚨</div>
+                    <h3>SOS Emergency</h3>
+                    <p>One-tap emergency alert — sends your location instantly.</p>
+                    <button class="btn btn-danger btn-block" id="sos-btn">
+                        🚨 SEND SOS
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- My Incidents Section -->
+        <section class="incidents-section">
+            <h2 class="section-heading">My Submitted Reports</h2>
+
+            <!-- Loading/Empty state -->
+            <div id="incidents-loading" class="loading-msg">Loading your reports...</div>
+            <div id="incidents-empty" class="empty-msg" style="display:none;">
+                No incidents reported yet. Stay safe! 🌍
+            </div>
+
+            <!-- Incidents Table -->
+            <div class="table-wrapper" id="incidents-table-wrapper" style="display:none;">
+                <table class="data-table" id="incidents-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incidents-tbody">
+                        <!-- Rows inserted by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SOS overlay while sending -->
+    <div id="sos-overlay" class="sos-overlay" style="display:none;">
+        <div class="sos-overlay-content">
+            <p class="sos-spinner">🚨</p>
+            <p>Sending SOS alert...</p>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

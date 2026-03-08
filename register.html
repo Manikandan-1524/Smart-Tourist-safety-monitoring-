@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register – TourSafe</title>
+    <meta name="description" content="Create your TourSafe tourist account." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="auth-body">
+
+    <!-- Back to Home -->
+    <a href="index.html" class="back-link">← Back to Home</a>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="auth-logo">
+                <span class="shield-icon">🛡️</span>
+                <h1 class="auth-brand">TourSafe</h1>
+            </div>
+
+            <h2 class="auth-title">Create Account</h2>
+            <p class="auth-subtitle">Register to stay safe while you travel</p>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="auth-form" novalidate>
+
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" class="form-input" placeholder="e.g. John Doe" required />
+                    <span class="field-error" id="err-name"></span>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="reg-phone">Phone Number</label>
+                    <input type="tel" id="reg-phone" class="form-input" placeholder="e.g. +91 9876543210" required />
+                    <span class="field-error" id="err-phone"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="reg-email">Email Address</label>
+                    <input type="email" id="reg-email" class="form-input" placeholder="e.g. john@email.com" required />
+                    <span class="field-error" id="err-email"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" class="form-input" placeholder="At least 6 characters"
+                        required minlength="6" />
+                    <span class="field-error" id="err-password"></span>
+                </div>
+
+                <!-- Global error/success messages -->
+                <div id="reg-message" class="form-message"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block" id="reg-submit-btn">
+                    Create Account
+                </button>
+            </form>
+
+            <p class="auth-redirect">
+                Already have an account? <a href="login.html">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Load registration logic -->
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
